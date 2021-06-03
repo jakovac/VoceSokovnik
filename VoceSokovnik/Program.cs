@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VoceSokovnik
 {
@@ -13,7 +8,7 @@ namespace VoceSokovnik
         static void Main(string[] args)
         {
             var random = new Random();
-            int brojAkcija = 20;
+            int brojAkcija = 100;
             var sokovnik = new Sokovnik();
             var dodavanja = 0;
             var cedjenja = 0;
@@ -39,6 +34,7 @@ namespace VoceSokovnik
                     {
                         trule++;
                         Console.WriteLine("TRULA !");
+                        i++;
                     }
 
                 }
@@ -46,12 +42,11 @@ namespace VoceSokovnik
                 {
                     Console.WriteLine("Cedjenje");
                     iscedjenoSoka += sokovnik.Cediljka(sokovnik.Voce);
-                    Console.WriteLine("Od {0} kg jabuka {1} soka", sokovnik.KolicinaVocaUPosudi(),sokovnik.Cediljka(sokovnik.Voce));
+                    Console.WriteLine("Od {0}kg jabuka {1}l soka, preostalo mesta za jos {2}kg", sokovnik.KolicinaVocaUPosudi(),sokovnik.Cediljka(sokovnik.Voce), sokovnik.PreostaloKapaciteta());
                     sokovnik = new Sokovnik();
                     cedjenja++;
                     i++;
                 }
-
             }
 
             Console.WriteLine("Dodavanja: " + dodavanja + " ,Cedjenja: " + cedjenja + " ,Trulih:" + trule);

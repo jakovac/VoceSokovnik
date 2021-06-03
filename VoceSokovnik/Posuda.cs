@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace VoceSokovnik
 {
@@ -29,7 +27,7 @@ namespace VoceSokovnik
 
             if (Kapacitet < Voce.Sum(x => x.Tezina))
             {
-                Console.WriteLine("Premacen kapacitet: " + Voce.Sum(x => x.Tezina));
+                Console.WriteLine("Premašen kapacitet: " + Voce.Sum(x => x.Tezina));
                 throw new OverflowException("PremasenKapacitetException");
             }
         }
